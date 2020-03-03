@@ -8,7 +8,7 @@ import { UserContext } from '../context/UserContext.js'
 const UserForm = ( props ) => {
 
   const { user } = useContext(UserContext)
-  console.log("CRA UserContextValues:", user)
+  // console.log("CRA UserContextValues:", user)
 
   let location = props.location
   let match = props.match

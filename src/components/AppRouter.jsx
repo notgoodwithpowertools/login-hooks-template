@@ -2,11 +2,10 @@ import React, { /* useState,  useMemo, */ useEffect, useReducer } from 'react'
 
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
+import firebase, { firebaseRef } from '../utils/firebase.js'
+
 import { AuthContext } from '../context/AuthContext.js'
 import { UserContext } from '../context/UserContext.js'
-
-
-import firebase, { firebaseRef } from '../utils/firebase.js'
 
 import authReducer from '../reducers/authReducer.js'
 import userReducer from '../reducers/userReducer.js'

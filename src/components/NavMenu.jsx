@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import '../css/nav.css'
+import '../css/NavMenu.css'
 import Image from './Image.jsx';
 import logout_img from '../images/logout.png';
 import user_img from '../images/man-24-128-white.png';
