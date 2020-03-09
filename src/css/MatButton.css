@@ -1,11 +1,12 @@
 .matbtn {
-  --background-color: darkblue;
+  --background-color: #2d2c2c;
   --txt-color: white; 
   --muted-color: darken;
     background: var(--background-color);
     color: var(--txt-color);
     border: none;
     padding: 10px 20px;
+    margin: 10px;
     border-radius: 3px;
     letter-spacing: 0.06em;
     text-transform: uppercase;

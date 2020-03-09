@@ -57,16 +57,19 @@ const LoginForm = () => {
 
   return (
     <>
-      
-      <p>Login</p>
-      <div className="matform">
-        <MatInput value={email} onChange={updateEmail} onFocus={setMessage} type={"email"} label={"Email"} required />
-        <MatInput value={password} onChange={setPassword} onFocus={setMessage} type={"password"} label={"Password"} />
-        <MatButton text={"start"} onClick={onLoginEmail} disabled={disableButton()} />
-      </div>
-     <Link className="lpLink" to='/register'>Register here</Link>
-      <p>{message}</p>
+      <div className="loginFormMain">
+        <p className="loginFormItem">Login</p>
 
+        <MatInput value={email} onChange={updateEmail} onFocus={setMessage} type={"email"} label={"Email"} required />
+        <MatInput value={password} onChange={setPassword} onFocus={setMessage} type={"password"} label={"Password"} required/>
+        <MatButton text={"Login"} onClick={onLoginEmail} disabled={disableButton()} />
+        <div className="loginFormItem">
+          <Link className="lpLink" to='/register'>Register</Link>
+        </div>
+        <div className="loginFormItem message">
+          {message}
+        </div>
+      </div>
     </>
   )
 

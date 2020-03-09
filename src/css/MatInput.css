@@ -1,7 +1,7 @@
 
-.matitem { /* Item area styles */
+.matInput { /* Item area styles */
   display: flex;
-  min-height: 100px;
+  min-height: 70px;
   justify-content: flex-end;
   align-items: left;
   flex-direction: column;
@@ -16,12 +16,12 @@
   background-color: var(--bg-color);
 }
 
-input.mat,
-textarea { /* control styles */
+input.mat
+/* ,textarea */ { /* control styles */
   background: var(--bg-color);/* match background */
   color: var(--valid-txt-color);
   font-size: medium;
-  padding: 5px; /* 10px 10px 10px; */
+  padding: 5px;/* 10px 10px 10px; */
   width: 320px;
   border: none;
   outline: none; 

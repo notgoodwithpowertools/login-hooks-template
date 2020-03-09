@@ -10,7 +10,7 @@ const MatInput = (props) => {
 
     return (
 
-        <div className='matitem'>
+        <div className='matInput'>
 
             <input className='mat'
 
