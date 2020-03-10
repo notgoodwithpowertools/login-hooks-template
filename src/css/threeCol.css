@@ -1,0 +1,31 @@
+.threeCol {
+
+    display: flex;
+    align-items: stretch;
+    height: 100vh;
+
+}
+
+.side {
+    /* background: pink; */
+    background-image: linear-gradient(#e5e5e5, #2c2b2b);
+    flex: 0.25;
+
+}
+
+.middle {
+    flex: 1;
+}
+
+@media (max-width: 650px) {
+    /*.nav {
+      display: none;*/
+      /*position: fixed;
+      bottom: 0;*/
+    /*}*/
+  
+    .side {
+      display: none;
+    }
+  }
+  

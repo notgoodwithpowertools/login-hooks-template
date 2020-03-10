@@ -76,7 +76,7 @@ const AppRouter = () => {
         firebase.auth().signOut().then(() => {
             authDispatch({ type: 'LOGOUT' })
 
-        }).then(console.log("Logged out.of Firebase.."))
+        }).then(console.log("Logged out of Firebase..."))
             .catch(function (error) {
                 console.log("Logout of Firebase Error has occurred:", error)
             })

@@ -59,18 +59,24 @@ const RegisterForm = () => {
   return (
 
     <>
-      <div className="loginFormMain">
-      <p>Register</p>
 
-      <MatInput value={email} onChange={setEmailandName} onFocus={setMessage} type={"email"} label={"Email"} required />
-      <MatInput value={name} onChange={setName} label={"Name"} type="text" />
-      <MatInput value={password} onChange={setPassword} onFocus={setMessage} type={"password"} label={"Password"} required />
-      <MatButton text={"Register"} onClick={onRegisterEmail} disabled={disableButton()} />
-      <Link className="lpLink" to='/login'>Back to login</Link>
+      <div className="threeCol">
+        <div className='side'></div>
+        <div className="middle loginFormMain">
+          <p className="loginFormItem">Register</p>
 
-      <div className="loginFormItem message">
-          {message}
+          <MatInput value={email} onChange={setEmailandName} onFocus={setMessage} type={"email"} label={"Email"} required />
+          <MatInput value={name} onChange={setName} label={"Name"} type="text" />
+          <MatInput value={password} onChange={setPassword} onFocus={setMessage} type={"password"} label={"Password"} required />
+          <MatButton text={"Register"} onClick={onRegisterEmail} disabled={disableButton()} />
+          <div className="loginFormItem">
+            <Link className="lpLink" to='/login'>Back to login</Link>
+          </div>
+          <div className="loginFormItem message">
+            {message}
+          </div>
         </div>
+        <div className='side'></div>
       </div>
     </>
 
