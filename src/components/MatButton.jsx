@@ -4,11 +4,13 @@ import '../css/MatButton.css'
 
 const MatButton = (props) => {
 
-    const { text = 'Login', onClick, disabled } = props;
-
+    // Allow for case where onClick i not defined
+    const { text = 'Login', onClick = null, disabled } = props
+    
     return (
 
-        <button className='matbtn' onClick={ (e) => onClick(e) } disabled={disabled}>
+        
+        <button className='matbtn' onClick={ (e) => { return (onClick ? onClick(e) : null) } } disabled={disabled}>
 
             {text}
 

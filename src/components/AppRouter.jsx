@@ -11,6 +11,7 @@ import authReducer from '../reducers/authReducer.js'
 import userReducer from '../reducers/userReducer.js'
 
 import CRA from './CRA.jsx'
+import Items from './Items.jsx'
 import UserForm from './UserForm.jsx'
 import About from './About.jsx'
 import LoginForm from './LoginForm.jsx'
@@ -106,6 +107,7 @@ const AppRouter = () => {
 
                         <Route path='/' exact component={protect(UserForm)} />
                         <Route path='/cra' component={protect(CRA)} />
+                        <Route path='/items' component={protect(Items)} />
                         <Route path='/about' component={About} />
                         <Route path='/login' component={LoginForm} />
                         <Route path='/register' component={RegisterForm} />

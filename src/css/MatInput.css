@@ -14,10 +14,10 @@
   --focus-txt-color: purple;
   --hlight-txt-color: blue;
   background-color: var(--bg-color);
+  text-align: left;
 }
 
-input.mat
-/* ,textarea */ { /* control styles */
+input.mat { /* control styles */
   background: var(--bg-color);/* match background */
   color: var(--valid-txt-color);
   font-size: medium;
@@ -42,16 +42,20 @@ label.mat {
   transition: 600ms ease all;
 } 
 
-input.mat:required + label.mat { /* indicate required value with red label */
+input.mat:required + label.mat { /* indicate a 'required' value with red label */
   color: var(--invalid-txt-color);
 }
+
+/* input[type=date] + label.mat {
+
+} */
 
 input.mat:focus { /* styles while editing */
   color: var(--focus-txt-color);
   border-bottom: 3px solid yellow;
 }
 
-input.mat:focus + label.mat { /* move label position out of input if it is focussed*/
+input.mat:focus + label.mat, input[type=date] + label.mat { /* move label position out of input if it is focussed*/ /* or if it is type date */
   color: var(--hlight-txt-color);
   left: 0px;
   top: -50px;

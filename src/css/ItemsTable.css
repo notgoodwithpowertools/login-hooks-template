@@ -1,0 +1,9 @@
+.itemsTable {
+    background: white;
+    color: grey;
+    margin: 10px;
+}
+
+.itemsTable, td, th {
+    border: 1px solid black;
+}

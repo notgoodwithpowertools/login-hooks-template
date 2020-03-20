@@ -4,10 +4,9 @@ import '../css/MatInput.css'
 
 const MatInput = (props) => {
 
-    const { value, onChange, onFocus = null, type, required, label } = props
-    // console.log("onfocus - setMessage", onFocus)
-    // console.log("onChange - setField:", onChange)
-
+    // allow for cases where actions or fields are not defined
+    const { value, onChange = null, onFocus = null, step = null, type, required, label } = props
+    
     return (
 
         <div className='matInput'>
@@ -16,7 +15,8 @@ const MatInput = (props) => {
 
                 value={value} 
                 type={type} 
-                onChange={(e) => onChange(e.target.value)} 
+                step={ step ? step : null }
+                onChange={(e) => { return (onChange ? onChange(e.target.value) : null) } } 
                 onFocus={(e) => { return (onFocus ? onFocus('') : null) }} 
                 required={required}
 
