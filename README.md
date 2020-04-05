@@ -6,6 +6,23 @@ npm install --save firebase
 
 npm install --save moment
 
+Includes:
+- Login
+- NavMenu
+- Record Add
+- User data
+- User image default
+- User image change
+- Add Data to Firestore
+- Removed data to Firebase
+- Firestore rules
+- Firebase rules
+- About page
+- Page routing
+- Record delete
+- Image/File upload to storage
+- Image/File delete from storage
+
 
 ###
 

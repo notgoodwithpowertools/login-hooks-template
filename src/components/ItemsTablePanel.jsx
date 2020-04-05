@@ -1,39 +1,12 @@
 import React from 'react'
 
-import MatButton from './MatButton.jsx'
-
-import { deleteFSDocId } from '../utils/db-actions.js'
-import { getDateMDY } from '../utils/datefuncs.js'
+import ItemRow from './ItemRow.jsx'
 
 import '../css/ItemsTable.css'
 
 const ItemsTablePanel = (props) => {
 
     const { items, queryPath } = props;
-
-
-    const ItemRow = (props) => {
-
-        const { num, anItem } = props
-
-        console.log("ItemRow:", anItem)
-
-        const deleteRowItem = () => {
-            deleteFSDocId(queryPath, anItem.id)
-          }
-
-        return (
-            <tr key={anItem.id}>
-                <th scope="row">{num + 1}</th>
-                <td align='left'>{anItem.desc}</td>
-                <td align='left'>{(anItem.date ? getDateMDY(anItem.date.toDate()) : "")}</td>
-                <td>${anItem.value}</td>
-                <td>{anItem.image}</td>
-                <td><MatButton onClick={deleteRowItem} text={'Remove'}/></td>
-            </tr>
-        )
-
-    }
 
     const getRows = () => {
 
@@ -43,15 +16,17 @@ const ItemsTablePanel = (props) => {
 
                 return (
 
-                    <ItemRow key={index} anItem={item} num={index} />
+                    <ItemRow key={index} anItem={item} num={index} queryPath={queryPath} />
 
                 )
 
             })
+
         }
         else {
+
             return (
-                
+
                 <tr key='1'>
                     <th scope="row">1</th>
                     <td>No items</td>
@@ -60,8 +35,9 @@ const ItemsTablePanel = (props) => {
                     <td>Cell</td>
                     <td>Cell</td>
                 </tr>
-                
+
             )
+
         }
     }
 
@@ -89,4 +65,3 @@ const ItemsTablePanel = (props) => {
 }
 
 export { ItemsTablePanel as default }
-

@@ -1,0 +1,32 @@
+.imageForm {
+    display: flex;
+    padding: 6px 12px;
+    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageForm label {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: medium;
+}
+
+.imageForm img {
+    margin-right: 5px;
+}
+
+.imageForm input[type="file"]{
+    display: none;
+}
+
+.imageForm p {
+    font-size: medium;
+    color: green;
+}
+

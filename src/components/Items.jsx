@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 
 import { firestoreDB } from '../utils/firebase.js'
 
+import SelectCategoryForm from './SelectCategoryForm.jsx'
 import AddItemForm from './AddItemForm.jsx'
 import ItemsTablePanel from './ItemsTablePanel.jsx'
 
@@ -18,19 +19,39 @@ const Items = (props) => {
 
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
-  // const [category, setCategory] = useState('mont-albert-road')
+  const [categories, setCategories] = useState(['cowes', 'mont-albert-road'])
+  const [category, setCategory] = useState('cowes')
 
   let location = props.location
   let match = props.match
-  let category = 'mont-albert-road'
+  // let category = 'mont-albert-road'
   let year = '2018-2019'
 
   let queryPath = `items/${year}/${category}`
-  console.log("queryPath:", queryPath)
+  // console.log("queryPath:", queryPath)
 
-  useEffect(() => {
+  useEffect(() => { // get item categories
 
-    console.log("Items useEffect ... ")
+    console.log("Items useEffect 2...Get Categories ...")
+  
+    const unsubscribe = firestoreDB.collection('items').doc('2018-2019')
+      .onSnapshot(function (doc) {
+        console.log("Categories: ", doc.data().colls.toString())
+        setCategories(doc.data().colls)
+      })
+    return () => {
+
+      // Clean up the listener subscription
+      console.log("Clean up the Items useEffect listener subscription...")
+      unsubscribe()
+
+    }
+
+  }, [])
+
+  useEffect(() => { // get item documents for the selected path/category
+
+    console.log("Items useEffect 1 ... ")
 
     const itemsCollection = firestoreDB.collection(queryPath)
 
@@ -53,17 +74,21 @@ const Items = (props) => {
 
     })
     return () => {
+
       // Clean up the listener subscription
       console.log("Clean up the Items useEffect listener subscription...")
-      unsubscribe();
+      unsubscribe()
+      
     }
+
   }, [queryPath])
 
   return (
-    <>
 
+    <>
       <div className="App">
         <header className="App-header">
+          <SelectCategoryForm categories={categories} onChange={setCategory} />
           <AddItemForm queryPath={queryPath} />
           {loading ? <div>Loading...</div> : <ItemsTablePanel items={items} queryPath={queryPath} />}
           <h3>Location: {location.pathname}</h3>
@@ -72,7 +97,7 @@ const Items = (props) => {
           <h4>Context User id:<pre>{userAuth.uid}</pre></h4>
 
           < img src={logo} className="App-logo" alt="logo" />
-          
+
         </header>
       </div>
     </>

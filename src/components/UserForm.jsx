@@ -1,41 +1,64 @@
 import React, { useContext } from 'react'
 
-import logo from '../logo.svg'
-import '../App.css'
+import { firestoreDB, firebaseStorageRef } from '../utils/firebase.js'
+
+import '../css/UserForm.css'
 
 import { UserContext } from '../context/UserContext.js'
 
-const UserForm = ( props ) => {
+const UserForm = (props) => {
 
   const { user } = useContext(UserContext)
-  // console.log("CRA UserContextValues:", user)
+  console.log("CRA UserContextValues:", user)
 
-  let location = props.location
-  let match = props.match
-  
+  const changePic = (event) =>  {
+
+    console.log("ChangePic Event", event)
+    const aFile = event.target.files[0];
+    console.log("aFile:", aFile);
+    const fileExt = aFile.name.split('.').pop()
+    console.log("aFile extension:", fileExt)
+    var userImagesRef = firebaseStorageRef.child('userimages/' + user.name + '.' + fileExt);
+    console.log("reference:", userImagesRef);
+
+    //upload file and set user image file link info
+    let task = userImagesRef.put(aFile)
+    task.on('state_changed',
+      function progress (snapshot) {
+        
+        var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("%:", percentage);
+        console.log("In progress");
+
+      },
+      function error () {
+
+        console.log("Error with file upload!");
+
+      },
+      function complete () {
+
+        console.log("Upload complete");
+        task.snapshot.ref.getDownloadURL().then( (downloadURL) => {
+          console.log("downloadURL:", downloadURL);
+          firestoreDB.collection("users").doc(user.uid).update({imageURL: downloadURL})
+        })
+
+      }
+    );
+  }
+
   return (
 
     <div className="App">
-      <header className="App-header">
-        <h3>Location: {location.pathname}</h3>
-        <h3>Match path: {match.path}</h3>
-        <h3>Exact match: {match.isExact.toString()}</h3>
-        <h4>Context Userid:<pre>{user.uid}</pre></h4>
-        <h4>Context Name:<pre>{user.name}</pre></h4>
-        
-        < img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Updated with React Hooks
-        </a>
-      </header>
+      <div className='UserForm'>
+        <h3>Email: </h3>
+        <p>{user.email}</p>
+        <h3>User Name:</h3>
+        <p>{user.name}{user.admin ? ' - Administrator' : ''}</p>
+        <img className='UserFormItem' src={user.imageURL} alt={user.imageURL} />
+        <input type='file' name='img' accept='.gif,.jpg,.jpeg,.png' onChange={(e) => changePic(e)} />
+      </div>
     </div>
 
   )
