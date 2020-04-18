@@ -1,0 +1,5 @@
+.ItemsPage {
+    display: flex;
+    align-items: flex-start; /* Align items to top of page arranged horizontally across */
+    justify-content: center;
+}

@@ -8,17 +8,20 @@
   margin: 10px;
   padding: 3px;
   padding-bottom: 0px;
+  /* border: 2px solid red; */
   --bg-color: none;
   --valid-txt-color: green; 
   --invalid-txt-color: red; 
   --focus-txt-color: purple;
   --hlight-txt-color: blue;
   background-color: var(--bg-color);
+  /* background-color: salmon; */
   text-align: left;
 }
 
 input.mat { /* control styles */
-  background: var(--bg-color);/* match background */
+/*   background: var(--bg-color); *//* match background */
+  /* background: yellow; */
   color: var(--valid-txt-color);
   font-size: medium;
   padding: 5px;/* 10px 10px 10px; */

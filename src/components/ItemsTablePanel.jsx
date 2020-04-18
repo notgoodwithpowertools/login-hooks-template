@@ -28,7 +28,7 @@ const ItemsTablePanel = (props) => {
             return (
 
                 <tr key='1'>
-                    <th scope="row">1</th>
+                    <th className="itemsTable">1</th>
                     <td>No items</td>
                     <td>Cell</td>
                     <td>Cell</td>
@@ -46,13 +46,12 @@ const ItemsTablePanel = (props) => {
         <div className="itemsTablePanel" >
             <table className="itemsTable">
                 <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col" align='left'>Desc</th>
-                        <th scope="col" align='left'>Date</th>
-                        <th scope="col">Value</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Action</th>
+                    <tr className="itemsTableHead">
+                        <th className='itemsTableDesc'>Desc</th>
+                        <th>Date</th>
+                        <th>Value</th>
+                        <th>Image</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -1,4 +1,7 @@
 .addItemForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   background: white;
   margin: 10px;
   color: #383535;

@@ -1,0 +1,54 @@
+.MatSelectPanel {
+    background: white;
+    height: 80px;
+    display: flex;
+    flex-direction: column;  /* make main axis horizontal (default setting) */
+    justify-content: center; /* center items horizontally, in this case */
+    align-items: left;   
+
+  }
+
+.MatSelect { /* Item area styles */
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px; 
+    --valid-txt-color: green; 
+    --hlight-txt-color: blue;
+    text-align: left;
+  }
+
+select.MatSelect  {
+        background: transparent;
+        color: var(--valid-txt-color);
+        font-size: medium;
+        min-width: 320px;
+        border: none;
+        outline: none; /* removes outline from Chrome only - FF still a problem */
+        border-bottom: 3px solid var(--valid-txt-color);
+        transition: 600ms ease all;
+        -webkit-appearance:none;
+        -moz-appearance:none;
+         appearance:none;
+}
+
+/* For FF */
+select.MatSelect:-moz-focusring, select::-moz-focus-inner  {
+    color: transparent;
+    text-shadow: 0 0 0 var(--valid-txt-color);
+}
+
+/* Create the drop down caret */
+select.MatSelect:focus {
+    background: url(../images/utils/down-arrow-grey.png) no-repeat right;     
+    background-position-x: calc( 100% - 5px ); 
+}
+
+/* Following only works for Chrome - does not seem possible for FF */
+select.MatSelect > option {
+    color: var(--valid-txt-color);
+}
+  
+label.MatSelect  {
+  color: var(--hlight-txt-color);
+  font-size: small;
+}

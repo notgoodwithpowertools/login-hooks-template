@@ -6,6 +6,7 @@ import { firebaseStorageRef } from '../utils/firebase.js'
 
 import { deleteFSDocId, deleteFBStorageItem } from '../utils/db-actions.js'
 import { getDateMDY } from '../utils/datefuncs.js'
+import '../css/ItemsTable.css'
 
 const ItemRow = (props) => {
 
@@ -50,13 +51,20 @@ const ItemRow = (props) => {
     
     }
 
+    const getClass = (num) => {
+
+       if (num % 2 !== 0) {
+           return `itemsTableRowOdd`
+       }
+       else return `itemsTableRowEven`
+    }
+
     return (
-        <tr key={anItem.id}>
-            <th scope="row">{num + 1}</th>
-            <td align='left'>{anItem.desc}</td>
-            <td align='left'>{(anItem.date ? getDateMDY(anItem.date.toDate()) : "")}</td>
-            <td>${anItem.value}</td>
-            <td className='urlLink' onClick={() => launchLink()}>{linkTxt}</td>
+        <tr key={anItem.id} className={`itemsTableRow ${getClass(num)}`}>
+            <td className="itemsTableDesc">{anItem.desc}</td>
+            <td>{(anItem.date ? getDateMDY(anItem.date.toDate()) : "")}</td>
+            <td className="itemsTableVal">${anItem.value}</td>
+            <td className='urlLink itemsTableImage' onClick={() => launchLink()}>{linkTxt}</td>
             <td><MatButton onClick={deleteRowItem} text={'Remove'} /></td>
         </tr>
     )
