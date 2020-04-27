@@ -1,4 +1,4 @@
-import { firestoreDB, firebaseStorageRef } from '../utils/firebase.js'
+import firebase, { firestoreDB, firebaseStorageRef } from '../utils/firebase.js'
 
 export var deleteFSDocId = (collection, id) => {
 
@@ -33,6 +33,17 @@ export var deleteFBStorageItem = (url) => {
 
     })
    
+}
+
+export let addCat= (cat1Cat, catName) => {
+
+    console.log(`addCat: Adding category to FS ... ${cat1Cat}/${catName}`)
+    // Atomically add a new region to the "regions" array field.
+    let ref = firestoreDB.collection("items").doc(cat1Cat);
+    ref.update({
+       colls: firebase.firestore.FieldValue.arrayUnion(catName)
+    })
+
 }
 
 export var addItem = (dbPath, desc, comment, value, aDate, imageFile) => {

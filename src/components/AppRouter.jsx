@@ -150,7 +150,7 @@ const AppRouter = () => {
 
                         <Route path='/' exact component={protect(UserForm)} />
                         <Route path='/cra' component={protect(CRA)} />
-                        <Route path='/items' component={protect(Items)} />
+                        <Route path='/items' exact component={protect(Items)} />
                         <Route path='/about' component={About} />
                         <Route path='/login' component={LoginForm} />
                         <Route path='/register' component={RegisterForm} />

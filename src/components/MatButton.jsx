@@ -9,7 +9,6 @@ const MatButton = (props) => {
     
     return (
 
-        
         <button className='matbtn' onClick={ (e) => { return (onClick ? onClick(e) : null) } } disabled={disabled}>
 
             {text}

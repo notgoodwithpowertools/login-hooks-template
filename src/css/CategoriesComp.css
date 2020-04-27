@@ -1,0 +1,58 @@
+.CategoriesComp {
+    /* background: lime; */
+    /* border: 3px solid red; */
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+}
+
+.Cat1Comp {
+    display: flex;
+    /* border: 2px solid green; */
+}
+
+.CategoryBadge {
+    background: #2a46d4; 
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    margin: 5px;
+    font-family: "Montserrat";
+    font-size: smaller;
+}
+
+.Cat1Badge {
+    background: #c850c0;
+}
+
+div[disabled].CategoryBadge {
+    background: #b4b5b6;
+}
+
+
+.Cat2Panel {
+    /* background: lightcoral; */
+    /* border: 3px solid red; */
+    margin: 10px;
+}
+
+.CategoryAddPanel {
+    /* background: #2f4cec; */
+    /* min-width: 150px; */
+    margin: 8px;
+    
+}
+
+button.cat1{
+   background: #c850c0;
+}
+
+.CategoryAddPanel {
+    display: flex;
+    justify-content: center;
+    /* border: 2px solid red; */
+    align-items: center;
+}
